@@ -1,4 +1,4 @@
-namespace Main.Routes;
+namespace CRUD.Routes;
 
 
 public static class MainRoute{
@@ -6,7 +6,7 @@ public static class MainRoute{
     public static void MainRoutes(this WebApplication app){ 
         //this serve para chamar todas as rotas com app.MainRoutes()
 
-    app.MapGet("crud",() => "Ola pessoa !"); //endpoint
+    app.MapGet("crud",() => new Models(name:"Gabriel")); //endpoint
 
     }
 
