@@ -1,4 +1,4 @@
-using Main.Routes;
+using CRUD.Routes;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
