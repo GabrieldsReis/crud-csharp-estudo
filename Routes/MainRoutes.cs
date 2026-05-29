@@ -1,12 +1,15 @@
+using CRUD.Models;
 namespace CRUD.Routes;
 
 
-public static class MainRoute{
+public static class MainRoute
+{
 
-    public static void MainRoutes(this WebApplication app){ 
+    public static void MainRoutes(this WebApplication app)
+    {
         //this serve para chamar todas as rotas com app.MainRoutes()
 
-    app.MapGet("crud",() => new Models(name:"Gabriel")); //endpoint
+        app.MapGet("crud", () => new Usuario(name: "Gabriel")); //endpoint
 
     }
 
