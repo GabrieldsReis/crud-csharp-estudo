@@ -1,8 +1,10 @@
+using CRUD.Data;
 using CRUD.Routes;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<AppDbContext>();
 
 var app = builder.Build();
 
