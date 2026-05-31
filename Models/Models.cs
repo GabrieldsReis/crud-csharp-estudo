@@ -11,4 +11,10 @@ public class Usuario
     public Guid Id { get; init; } //evitar id iguais, aleatorio
     public string Name { get; private set; }
 
+    public void ChangeName(string name)
+    {
+        Name=name;
+    }
+
+
 }

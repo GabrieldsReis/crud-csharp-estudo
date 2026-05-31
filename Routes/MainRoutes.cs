@@ -24,6 +24,31 @@ public static class MainRoute
             var people = await context.Usuarios.ToListAsync();
             return Results.Ok(people);
         });
+
+            route.MapPut("{id:guid}",async(Guid id,ModelRequest req,AppDbContext context) =>
+            {
+                var person = await context.Usuarios.FirstOrDefaultAsync(x => x.Id == id);
+                if(person == null)
+                {
+                    return Results.NotFound();
+                }
+                person.ChangeName(req.name);
+                await context.SaveChangesAsync();
+                return Results.Ok(person);
+            });
+            route.MapDelete("{id:guid}",async(Guid id,AppDbContext context) =>
+            {
+                var person = await context.Usuarios.FirstOrDefaultAsync(x => x.Id == id);
+                if(person == null)
+                {
+                    return Results.NotFound();
+                }
+                person.ChangeName("Desativado");
+                await context.SaveChangesAsync();
+                return Results.Ok(person);
+
+
+            });
     }
 
 
